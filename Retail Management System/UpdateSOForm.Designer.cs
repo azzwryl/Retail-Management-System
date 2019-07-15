@@ -81,6 +81,7 @@
             this.SOUpdateSaveButton.TabIndex = 41;
             this.SOUpdateSaveButton.Text = "Save";
             this.SOUpdateSaveButton.UseVisualStyleBackColor = true;
+            this.SOUpdateSaveButton.Click += new System.EventHandler(this.SOUpdateSaveButton_Click);
             // 
             // SOUpdateTotalAmountTextBox
             // 
@@ -89,6 +90,7 @@
             this.SOUpdateTotalAmountTextBox.Name = "SOUpdateTotalAmountTextBox";
             this.SOUpdateTotalAmountTextBox.Size = new System.Drawing.Size(503, 34);
             this.SOUpdateTotalAmountTextBox.TabIndex = 40;
+            this.SOUpdateTotalAmountTextBox.Text = "0.00";
             this.SOUpdateTotalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
@@ -151,6 +153,7 @@
             this.SOUpdateDeleteButton.TabIndex = 25;
             this.SOUpdateDeleteButton.Text = "Delete Item";
             this.SOUpdateDeleteButton.UseVisualStyleBackColor = true;
+            this.SOUpdateDeleteButton.Click += new System.EventHandler(this.SOUpdateDeleteButton_Click);
             // 
             // SOUpdateUnitPriceTextBox
             // 
@@ -225,6 +228,7 @@
             this.SOUpdateAddItemButton.TabIndex = 21;
             this.SOUpdateAddItemButton.Text = "Add Item";
             this.SOUpdateAddItemButton.UseVisualStyleBackColor = true;
+            this.SOUpdateAddItemButton.Click += new System.EventHandler(this.SOUpdateAddItemButton_Click);
             // 
             // SOUpdateQuantityTextBox
             // 
@@ -354,7 +358,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ItemIdLabel);
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UpdateSOForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateSOForm";

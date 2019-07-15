@@ -22,9 +22,12 @@ namespace Retail_Management_System
         public AddNewCustomerForm()
         {
             InitializeComponent();
+
+            //Country has to have a value first before Province/State is to be enabled, then City/Town, then Exact Location.
             NewCustomerProvinceOrStateComboBox.Enabled = false;
             NewCustomerCityOrTownComboBox.Enabled = false;
             NewCustomerExactLocationTextBox.Enabled = false;
+
             NewCustomerCountryComboBox.SelectedValueChanged += new EventHandler(NewCustomerCountryComboBox_SelectedValueChanged);
             NewCustomerProvinceOrStateComboBox.SelectedValueChanged += new EventHandler(NewCustomerProvinceOrStateComboBox_SelectedValueChanged);
             NewCustomerCityOrTownComboBox.SelectedValueChanged += new EventHandler(NewCustomerCityOrTown_SelectedValueChanged);

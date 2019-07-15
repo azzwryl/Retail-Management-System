@@ -15,6 +15,7 @@ namespace Retail_Management_System.Models
         public DateTime SODate { get; set; }
         public string SOStatus { get; set; }
         public int SOQuantity { get; set; }
+        public byte CheckInitialRun { get; set; }
 
         public SalesOrderModel()
         {
@@ -44,6 +45,30 @@ namespace Retail_Management_System.Models
             SOStatus = soStatus;
             ItemId = itemId;
             ItemPrice = itemPrice;
+        }
+
+        public SalesOrderModel (string soId, decimal soTotalAmount, DateTime soDate, string soStatus)
+        {
+            SOId = soId;
+            SOTotalAmount = soTotalAmount;
+            SODate = soDate;
+            SOStatus = soStatus;
+        }
+
+        public SalesOrderModel (string soId, string soQuantity, DateTime soDate, string soStatus, string itemId, 
+            decimal itemPrice, byte checkInitialRun)
+        {
+            SOId = soId;
+
+            int soQuantityValue = 0;
+            Int32.TryParse(soQuantity, out soQuantityValue);
+            SOQuantity = soQuantityValue;
+
+            SODate = soDate;
+            SOStatus = soStatus;
+            ItemId = itemId;
+            ItemPrice = itemPrice;
+            CheckInitialRun = checkInitialRun;
         }
 
     }

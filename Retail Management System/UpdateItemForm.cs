@@ -17,38 +17,16 @@ namespace Retail_Management_System
     public partial class UpdateItemForm : Form
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["RMSdb"].ConnectionString;
-        private string selectedItem;
 
-        public UpdateItemForm(string s)
+        public UpdateItemForm(ListViewItem selectedItemlistView)
         {
             InitializeComponent();
 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("dbo.spItem_GetSelectedItem", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@SelectedItem", s);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                UpdateItemIdTextbox.Text = dr["ItemId"].ToString();
-                UpdateItemNameTextBox.Text = dr["ItemName"].ToString();
-                UpdateItemDescriptionTextBox.Text = dr["ItemDescription"].ToString();
-                UpdateItemPriceTextBox.Text = dr["ItemPrice"].ToString();
-                UpdateItemDiscountTextBox.Text = dr["ItemDiscount"].ToString();
-
-                if(dr["ItemDisabled"].ToString() == "True")
-                {
-                    UpdateItemCheckBox.Checked = true;
-                }
-                
-            }
-
-            dr.Close();
-            conn.Close();
-            selectedItem = s;
+            UpdateItemIdTextbox.Text = selectedItemlistView.SubItems[0].Text.ToString();
+            UpdateItemNameTextBox.Text = selectedItemlistView.SubItems[1].Text.ToString();
+            UpdateItemDescriptionTextBox.Text = selectedItemlistView.SubItems[2].Text.ToString();
+            UpdateItemPriceTextBox.Text = selectedItemlistView.SubItems[3].Text.ToString();
+            UpdateItemDiscountTextBox.Text = selectedItemlistView.SubItems[4].Text.ToString();
         }
 
         private void UpdateItemCancelButton_Click(object sender, EventArgs e)
@@ -84,9 +62,8 @@ namespace Retail_Management_System
                 p.Add("@ItemPrice", model.ItemPrice);
                 p.Add("@ItemDiscount", model.ItemDiscount);
                 p.Add("@ItemDisabled", model.ItemDisabled);
-                p.Add("@SelectedItem", dbType: DbType.String, value: selectedItem, direction: ParameterDirection.Input);
 
-                MessageBox.Show("Item "+model.ItemDisabled+" has been updated.");
+                MessageBox.Show("Item "+model.ItemName+" has been updated.");
 
                 connection.Execute("dbo.spItem_Update", p, commandType: CommandType.StoredProcedure);
 

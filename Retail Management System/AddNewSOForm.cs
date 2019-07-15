@@ -212,7 +212,6 @@ namespace Retail_Management_System
                     var q = new DynamicParameters();
 
                     q.Add("@ItemId", SONewListView.Items[k].SubItems[0].Text);
-                    MessageBox.Show(SONewListView.Items[k].SubItems[5].Text.ToString());
                     q.Add("@SOQuantity", SONewListView.Items[k].SubItems[5].Text);
 
                     connection.Execute("dbo.spSO_UpdateInventoryQuantity", q, commandType: CommandType.StoredProcedure);

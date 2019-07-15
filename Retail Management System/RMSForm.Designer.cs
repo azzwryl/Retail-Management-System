@@ -109,6 +109,16 @@
             this.SOSearchTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.InvoicesTabPage = new System.Windows.Forms.TabPage();
+            this.InvoiceListView = new System.Windows.Forms.ListView();
+            this.InvoiceNumberColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceCustomerIdColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceCustomerNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceAmountColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceStatusColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceRefreshButton = new System.Windows.Forms.Button();
+            this.InvoiceSearchTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.InventoryTabPage = new System.Windows.Forms.TabPage();
             this.InvShowCheckBox = new System.Windows.Forms.CheckBox();
             this.InventoryListView = new System.Windows.Forms.ListView();
@@ -125,6 +135,7 @@
             this.VendorsTabPage.SuspendLayout();
             this.PurchaseOrderTabPage.SuspendLayout();
             this.SalesOrdersTabPage.SuspendLayout();
+            this.InvoicesTabPage.SuspendLayout();
             this.InventoryTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -319,7 +330,7 @@
             this.CustomerContactNumberColumnHeader,
             this.CustomerContactPersonColumnHeader,
             this.CustomerStatusColumnHeader});
-            this.CustomerListView.Location = new System.Drawing.Point(24, 90);
+            this.CustomerListView.Location = new System.Drawing.Point(6, 86);
             this.CustomerListView.Name = "CustomerListView";
             this.CustomerListView.Size = new System.Drawing.Size(1112, 613);
             this.CustomerListView.TabIndex = 13;
@@ -344,37 +355,37 @@
             // CustomerCityOrTownColumnHeader
             // 
             this.CustomerCityOrTownColumnHeader.Text = "City/Town";
-            this.CustomerCityOrTownColumnHeader.Width = 50;
+            this.CustomerCityOrTownColumnHeader.Width = 80;
             // 
             // CustomerProvinceOrStateColumnHeader
             // 
             this.CustomerProvinceOrStateColumnHeader.Text = "Province/State";
-            this.CustomerProvinceOrStateColumnHeader.Width = 50;
+            this.CustomerProvinceOrStateColumnHeader.Width = 96;
             // 
             // CustomerCountryColumnHeader
             // 
             this.CustomerCountryColumnHeader.Text = "Country";
-            this.CustomerCountryColumnHeader.Width = 50;
+            this.CustomerCountryColumnHeader.Width = 99;
             // 
             // CustomerEmailColumnHeader
             // 
             this.CustomerEmailColumnHeader.Text = "Email";
-            this.CustomerEmailColumnHeader.Width = 50;
+            this.CustomerEmailColumnHeader.Width = 105;
             // 
             // CustomerContactNumberColumnHeader
             // 
             this.CustomerContactNumberColumnHeader.Text = "Contact Number";
-            this.CustomerContactNumberColumnHeader.Width = 50;
+            this.CustomerContactNumberColumnHeader.Width = 123;
             // 
             // CustomerContactPersonColumnHeader
             // 
             this.CustomerContactPersonColumnHeader.Text = "Contact Person";
-            this.CustomerContactPersonColumnHeader.Width = 100;
+            this.CustomerContactPersonColumnHeader.Width = 200;
             // 
             // CustomerStatusColumnHeader
             // 
             this.CustomerStatusColumnHeader.Text = "Status";
-            this.CustomerStatusColumnHeader.Width = 50;
+            this.CustomerStatusColumnHeader.Width = 111;
             // 
             // CustomerRefreshButton
             // 
@@ -549,6 +560,7 @@
             this.VendorUpdateButton.TabIndex = 15;
             this.VendorUpdateButton.Text = "Update";
             this.VendorUpdateButton.UseVisualStyleBackColor = true;
+            this.VendorUpdateButton.Click += new System.EventHandler(this.VendorUpdateButton_Click);
             // 
             // VendorRefreshButton
             // 
@@ -860,12 +872,96 @@
             // InvoicesTabPage
             // 
             this.InvoicesTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.InvoicesTabPage.Controls.Add(this.InvoiceListView);
+            this.InvoicesTabPage.Controls.Add(this.InvoiceRefreshButton);
+            this.InvoicesTabPage.Controls.Add(this.InvoiceSearchTextBox);
+            this.InvoicesTabPage.Controls.Add(this.label5);
             this.InvoicesTabPage.Location = new System.Drawing.Point(124, 4);
             this.InvoicesTabPage.Name = "InvoicesTabPage";
             this.InvoicesTabPage.Size = new System.Drawing.Size(1133, 707);
             this.InvoicesTabPage.TabIndex = 5;
             this.InvoicesTabPage.Text = "INVOICES";
             this.InvoicesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // InvoiceListView
+            // 
+            this.InvoiceListView.AllowColumnReorder = true;
+            this.InvoiceListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InvoiceListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.InvoiceNumberColumnHeader,
+            this.InvoiceCustomerIdColumnHeader,
+            this.InvoiceCustomerNameColumnHeader,
+            this.InvoiceAmountColumnHeader,
+            this.InvoiceDateColumnHeader,
+            this.InvoiceStatusColumnHeader});
+            this.InvoiceListView.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvoiceListView.Location = new System.Drawing.Point(3, 88);
+            this.InvoiceListView.Name = "InvoiceListView";
+            this.InvoiceListView.Size = new System.Drawing.Size(1112, 613);
+            this.InvoiceListView.TabIndex = 38;
+            this.InvoiceListView.UseCompatibleStateImageBehavior = false;
+            this.InvoiceListView.View = System.Windows.Forms.View.Details;
+            // 
+            // InvoiceNumberColumnHeader
+            // 
+            this.InvoiceNumberColumnHeader.Text = "Inv Num";
+            this.InvoiceNumberColumnHeader.Width = 129;
+            // 
+            // InvoiceCustomerIdColumnHeader
+            // 
+            this.InvoiceCustomerIdColumnHeader.Text = "Customer Id";
+            this.InvoiceCustomerIdColumnHeader.Width = 138;
+            // 
+            // InvoiceCustomerNameColumnHeader
+            // 
+            this.InvoiceCustomerNameColumnHeader.Text = "Customer Name";
+            this.InvoiceCustomerNameColumnHeader.Width = 213;
+            // 
+            // InvoiceAmountColumnHeader
+            // 
+            this.InvoiceAmountColumnHeader.Text = "Total Amount";
+            this.InvoiceAmountColumnHeader.Width = 373;
+            // 
+            // InvoiceDateColumnHeader
+            // 
+            this.InvoiceDateColumnHeader.Text = "Date of Invoice";
+            this.InvoiceDateColumnHeader.Width = 179;
+            // 
+            // InvoiceStatusColumnHeader
+            // 
+            this.InvoiceStatusColumnHeader.Text = "Status";
+            this.InvoiceStatusColumnHeader.Width = 91;
+            // 
+            // InvoiceRefreshButton
+            // 
+            this.InvoiceRefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InvoiceRefreshButton.Font = new System.Drawing.Font("Arial", 15F);
+            this.InvoiceRefreshButton.Location = new System.Drawing.Point(993, 42);
+            this.InvoiceRefreshButton.Name = "InvoiceRefreshButton";
+            this.InvoiceRefreshButton.Size = new System.Drawing.Size(135, 39);
+            this.InvoiceRefreshButton.TabIndex = 35;
+            this.InvoiceRefreshButton.Text = "Refresh";
+            this.InvoiceRefreshButton.UseVisualStyleBackColor = true;
+            // 
+            // InvoiceSearchTextBox
+            // 
+            this.InvoiceSearchTextBox.Font = new System.Drawing.Font("Arial", 15F);
+            this.InvoiceSearchTextBox.Location = new System.Drawing.Point(125, 3);
+            this.InvoiceSearchTextBox.Name = "InvoiceSearchTextBox";
+            this.InvoiceSearchTextBox.Size = new System.Drawing.Size(724, 36);
+            this.InvoiceSearchTextBox.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 15F);
+            this.label5.Location = new System.Drawing.Point(10, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 28);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Search: ";
             // 
             // InventoryTabPage
             // 
@@ -912,7 +1008,6 @@
             this.InventoryListView.TabIndex = 24;
             this.InventoryListView.UseCompatibleStateImageBehavior = false;
             this.InventoryListView.View = System.Windows.Forms.View.Details;
-            this.InventoryListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.InventoryListView_ColumnClick);
             // 
             // InvItemIdColumnHeader
             // 
@@ -985,6 +1080,8 @@
             this.PurchaseOrderTabPage.PerformLayout();
             this.SalesOrdersTabPage.ResumeLayout(false);
             this.SalesOrdersTabPage.PerformLayout();
+            this.InvoicesTabPage.ResumeLayout(false);
+            this.InvoicesTabPage.PerformLayout();
             this.InventoryTabPage.ResumeLayout(false);
             this.InventoryTabPage.PerformLayout();
             this.ResumeLayout(false);
@@ -1084,6 +1181,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ColumnHeader SODateColumnHeader;
         private System.Windows.Forms.CheckBox InvShowCheckBox;
+        private System.Windows.Forms.ListView InvoiceListView;
+        private System.Windows.Forms.ColumnHeader InvoiceNumberColumnHeader;
+        private System.Windows.Forms.ColumnHeader InvoiceCustomerIdColumnHeader;
+        private System.Windows.Forms.ColumnHeader InvoiceCustomerNameColumnHeader;
+        private System.Windows.Forms.ColumnHeader InvoiceAmountColumnHeader;
+        private System.Windows.Forms.ColumnHeader InvoiceDateColumnHeader;
+        private System.Windows.Forms.ColumnHeader InvoiceStatusColumnHeader;
+        private System.Windows.Forms.Button InvoiceRefreshButton;
+        private System.Windows.Forms.TextBox InvoiceSearchTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }
 
