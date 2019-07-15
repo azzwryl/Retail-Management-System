@@ -944,6 +944,7 @@
             this.InvoiceRefreshButton.TabIndex = 35;
             this.InvoiceRefreshButton.Text = "Refresh";
             this.InvoiceRefreshButton.UseVisualStyleBackColor = true;
+            this.InvoiceRefreshButton.Click += new System.EventHandler(this.InvoiceRefreshButton_Click);
             // 
             // InvoiceSearchTextBox
             // 

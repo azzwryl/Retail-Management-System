@@ -249,6 +249,7 @@ namespace Retail_Management_System
             POListView_FormatColumnHeader();
             SOListView_FormatColumnHeader();
             InventoryListView_FormatColumnHeader();
+            InvoiceListView_FormatColumnHeader();
         } //calls all the format columnheader functions.
         private void ItemListView_FormatColumnHeader()
         {
@@ -423,6 +424,31 @@ namespace Retail_Management_System
             InvItemLocationColumnHeader.TextAlign = HorizontalAlignment.Left;
             InvItemLocationColumnHeader.Width = 500;
         }
+        private void InvoiceListView_FormatColumnHeader()
+        {
+            InvoiceListView.FullRowSelect = true;
+
+            InvoiceListView.Width = 1115;
+            InvoiceListView.Location = new System.Drawing.Point(10, 90);
+
+            InvoiceNumberColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceNumberColumnHeader.Width = 100;
+
+            InvoiceCustomerIdColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceCustomerIdColumnHeader.Width = 120;
+
+            InvoiceCustomerNameColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceCustomerNameColumnHeader.Width = 400;
+
+            InvoiceAmountColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceAmountColumnHeader.Width = 300;
+
+            InvoiceDateColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceDateColumnHeader.Width = 150;
+
+            InvoiceStatusColumnHeader.TextAlign = HorizontalAlignment.Left;
+            InvoiceStatusColumnHeader.Width = 200;
+        }
 
         //Refresh buttons.
         private void InventoryRefreshButton_Click(object sender, EventArgs e)
@@ -474,6 +500,11 @@ namespace Retail_Management_System
         {
             ItemListView.Items.Clear();
             PopulateItemListView();
+        }
+        private void InvoiceRefreshButton_Click(object sender, EventArgs e)
+        {
+            InvoiceListView.Items.Clear();
+            PopulateInvoiceListView();
         }
 
         //Add New buttons.
@@ -689,7 +720,5 @@ namespace Retail_Management_System
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
-
-
     }
 }
