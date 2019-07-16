@@ -1,6 +1,6 @@
 # Retail Management System
 
-An ERP application for retail management.
+An ERP application for retail management using C# and SQL.
 
 ## Development Tools:
 
