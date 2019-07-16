@@ -5,7 +5,8 @@ An ERP application for retail management.
 ## Development Tools:
 
 -Visual Studio 2017 </br>
--Microsoft SQL Server 2017
+-Microsoft SQL Server 2017 </br>
+-RetailManagementSystemDBscript.sql has been added for the SQL script
 
 ## Usage
 (Click refresh after changes in order for it to reflect in the listview.)
